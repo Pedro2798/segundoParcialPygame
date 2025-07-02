@@ -40,6 +40,10 @@ def reiniciar_estadisticas(datos_juego:dict) -> None:
     # Reiniciar mensajes de error
     datos_juego["mensaje_error"] = ""
     datos_juego["tiempo_error"] = 0
+    # Configuración de música
+    datos_juego["musica_activa"] = True
+    # Modo de juego
+    datos_juego["modo_tiempo"] = False
 
 #GENERAL
 def verificar_respuesta(datos_juego:dict,pregunta:dict,respuesta:int) -> bool:
@@ -57,6 +61,9 @@ def verificar_respuesta(datos_juego:dict,pregunta:dict,respuesta:int) -> bool:
         if datos_juego["respuestas_correctas_seguidas"] >= 5:
             datos_juego["vidas"] += 1
             datos_juego["respuestas_correctas_seguidas"] = 0  # Reinicia el contador
+            
+            # También gana segundos extra
+            datos_juego["tiempo_restante"] += SEGUNDOS_EXTRA
             
         retorno = True
     else:
