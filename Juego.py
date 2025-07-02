@@ -87,7 +87,7 @@ def mostrar_juego(pantalla:pygame.Surface,cola_eventos:list[pygame.event.Event],
                     if respuesta != None:
                         # Verificar si el botón está activo (para comodín bomba)
                         if botones_respuesta[respuesta-1]["activo"]:
-                            if verificar_respuesta(datos_juego,pregunta_actual,respuesta) == True:
+                            if verificar_respuesta(datos_juego,pregunta_actual,respuesta,lista_preguntas,datos_juego['indice']) == True:
                                 CLICK_SONIDO.play()
                             else:
                                 ERROR_SONIDO.play()

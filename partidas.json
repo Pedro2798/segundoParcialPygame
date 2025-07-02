@@ -48,5 +48,10 @@
         "nombre": "ZXas",
         "puntuacion": -75,
         "fecha": "02/07/2025 13:23:21"
+    },
+    {
+        "nombre": "pedro",
+        "puntuacion": 1150,
+        "fecha": "02/07/2025 14:59:56"
     }
 ]

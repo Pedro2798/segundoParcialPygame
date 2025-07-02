@@ -46,7 +46,7 @@ def reiniciar_estadisticas(datos_juego:dict) -> None:
     datos_juego["modo_tiempo"] = False
 
 #GENERAL
-def verificar_respuesta(datos_juego:dict,pregunta:dict,respuesta:int) -> bool:
+def verificar_respuesta(datos_juego:dict,pregunta:dict,respuesta:int,lista_preguntas:list,indice_pregunta:int) -> bool:
     if respuesta == pregunta["respuesta_correcta"]:
         # Aplicar multiplicador x2 si está activo
         puntos_ganados = PUNTUACION_ACIERTO
@@ -64,7 +64,11 @@ def verificar_respuesta(datos_juego:dict,pregunta:dict,respuesta:int) -> bool:
             
             # También gana segundos extra
             datos_juego["tiempo_restante"] += SEGUNDOS_EXTRA
-            
+        
+        # Actualizar estadísticas de la pregunta
+        from Preguntas import actualizar_estadistica_pregunta
+        actualizar_estadistica_pregunta(lista_preguntas, indice_pregunta, True)
+        
         retorno = True
     else:
         # Verificar si tiene doble chance
@@ -75,7 +79,11 @@ def verificar_respuesta(datos_juego:dict,pregunta:dict,respuesta:int) -> bool:
             datos_juego["vidas"] -= 1
             datos_juego["puntuacion"] -= PUNTUACION_ERROR
             datos_juego["respuestas_correctas_seguidas"] = 0  # Reinicia el contador al fallar
-            retorno = False    
+            retorno = False
+        
+        # Actualizar estadísticas de la pregunta (incorrecta)
+        from Preguntas import actualizar_estadistica_pregunta
+        actualizar_estadistica_pregunta(lista_preguntas, indice_pregunta, False)
         
     return retorno
 
@@ -113,7 +121,7 @@ def cambiar_pregunta(lista_preguntas:list,indice:int,caja_pregunta:dict,boton_re
 
 def crear_botones_menu() -> list:
     lista_botones = []
-    pos_y = 115
+    pos_y = 280  # Empezar más abajo para dejar espacio al logo
     pos_x = (ANCHO-ANCHO_BOTON)//2
     for i in range(4):
         boton = crear_elemento_juego("textura_menu.jpg",ANCHO_BOTON,ALTO_BOTON,pos_x,pos_y)
