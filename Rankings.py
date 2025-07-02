@@ -45,7 +45,7 @@ def mostrar_rankings(pantalla:pygame.Surface,cola_eventos:list[pygame.event.Even
     # Encabezados de columnas
     mostrar_texto(pantalla, "POS", (50, 120), FUENTE_TEXTO, COLOR_NEGRO)
     mostrar_texto(pantalla, "NOMBRE", (120, 120), FUENTE_TEXTO, COLOR_NEGRO)
-    mostrar_texto(pantalla, "PUNTUACIÓN", (280, 120), FUENTE_TEXTO, COLOR_NEGRO)
+    mostrar_texto(pantalla, "PUNTOS", (280, 120), FUENTE_TEXTO, COLOR_NEGRO)
     mostrar_texto(pantalla, "FECHA", (420, 120), FUENTE_TEXTO, COLOR_NEGRO)
     
     # Cargar y mostrar rankings

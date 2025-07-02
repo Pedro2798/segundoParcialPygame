@@ -31,11 +31,14 @@ while corriendo:
     elif ventana_actual == "juego":
         porcentaje_volumen = datos_juego["volumen_musica"] / 100
         
-        if bandera_musica == False:
+        if bandera_musica == False and datos_juego.get("musica_activa", True):
             pygame.mixer.music.load("musica.mp3")
             pygame.mixer.music.set_volume(porcentaje_volumen)
             pygame.mixer.music.play(-1)
             bandera_musica = True
+        elif bandera_musica == True and not datos_juego.get("musica_activa", True):
+            pygame.mixer.music.stop()
+            bandera_musica = False
             
         ventana_actual = mostrar_juego(pantalla,cola_eventos,datos_juego)
     elif ventana_actual == "salir":

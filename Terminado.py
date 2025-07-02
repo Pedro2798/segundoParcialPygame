@@ -49,6 +49,14 @@ def guardar_partida(nombre: str, puntuacion: int) -> None:
     except Exception as e:
         print(f"Error al guardar partida: {e}")
 
+def guardar_estadisticas_preguntas() -> None:
+    """Guarda las estadísticas de las preguntas al archivo CSV"""
+    try:
+        from Preguntas import lista_preguntas, guardar_preguntas_a_csv
+        guardar_preguntas_a_csv(lista_preguntas)
+    except Exception as e:
+        print(f"Error al guardar estadísticas: {e}")
+
 def mostrar_terminado(pantalla: pygame.Surface, cola_eventos: list[pygame.event.Event], datos_juego: dict) -> str:
     retorno = "terminado"
     nombre_ingresado = datos_juego.get("nombre", "")
@@ -72,6 +80,7 @@ def mostrar_terminado(pantalla: pygame.Surface, cola_eventos: list[pygame.event.
             elif evento.key == pygame.K_RETURN:
                 if validar_nombre(nombre_ingresado):
                     guardar_partida(nombre_ingresado, datos_juego["puntuacion"])
+                    guardar_estadisticas_preguntas()  # Guardar estadísticas de preguntas
                     datos_juego["nombre"] = ""  # Limpiar el nombre
                     retorno = "menu"
                 else:
@@ -85,6 +94,7 @@ def mostrar_terminado(pantalla: pygame.Surface, cola_eventos: list[pygame.event.
                 if boton_guardar["rectangulo"].collidepoint(evento.pos):
                     if validar_nombre(nombre_ingresado):
                         guardar_partida(nombre_ingresado, datos_juego["puntuacion"])
+                        guardar_estadisticas_preguntas()  # Guardar estadísticas de preguntas
                         datos_juego["nombre"] = ""  # Limpiar el nombre
                         retorno = "menu"
                     else:
