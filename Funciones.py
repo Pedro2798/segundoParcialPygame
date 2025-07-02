@@ -40,8 +40,11 @@ def reiniciar_estadisticas(datos_juego:dict) -> None:
     # Reiniciar mensajes de error
     datos_juego["mensaje_error"] = ""
     datos_juego["tiempo_error"] = 0
-    # Configuración de música
-    datos_juego["musica_activa"] = True
+    # Configuración de música - solo inicializar si no existe
+    if "musica_activa" not in datos_juego:
+        datos_juego["musica_activa"] = True
+    if "volumen_musica" not in datos_juego:
+        datos_juego["volumen_musica"] = 100
     # Modo de juego
     datos_juego["modo_tiempo"] = False
 

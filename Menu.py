@@ -51,9 +51,9 @@ def mostrar_menu(pantalla:pygame.Surface,cola_eventos:list[pygame.event.Event]) 
         pantalla.blit(lista_botones[i]["superficie"],lista_botones[i]["rectangulo"])
     
     # Mostrar textos de los botones
-    mostrar_texto(lista_botones[BOTON_JUGAR]["superficie"],"JUGAR",(80,10),FUENTE_TEXTO,COLOR_NEGRO)
-    mostrar_texto(lista_botones[BOTON_PUNTUACIONES]["superficie"],"RANKINGS",(80,10),FUENTE_TEXTO,COLOR_NEGRO)
-    mostrar_texto(lista_botones[BOTON_CONFIG]["superficie"],"AJUSTES",(80,10),FUENTE_TEXTO,COLOR_NEGRO)
-    mostrar_texto(lista_botones[BOTON_SALIR]["superficie"],"SALIR",(80,10),FUENTE_TEXTO,COLOR_NEGRO)
+    mostrar_texto(lista_botones[BOTON_JUGAR]["superficie"],"JUGAR",(130,10),FUENTE_TEXTO,COLOR_NEGRO)
+    mostrar_texto(lista_botones[BOTON_PUNTUACIONES]["superficie"],"RANKINGS",(115,10),FUENTE_TEXTO,COLOR_NEGRO)
+    mostrar_texto(lista_botones[BOTON_CONFIG]["superficie"],"AJUSTES",(125,10),FUENTE_TEXTO,COLOR_NEGRO)
+    mostrar_texto(lista_botones[BOTON_SALIR]["superficie"],"SALIR",(140,10),FUENTE_TEXTO,COLOR_NEGRO)
 
     return retorno

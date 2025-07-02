@@ -67,10 +67,10 @@ def mostrar_ajustes(pantalla:pygame.Surface,cola_eventos:list[pygame.event.Event
         pantalla.fill(COLOR_BLANCO)
     
     # Título
-    mostrar_texto(pantalla, "CONFIGURACIÓN", (ANCHO//2 - 120, 80), FUENTE_PREGUNTA, COLOR_NEGRO)
+    mostrar_texto(pantalla, "CONFIGURACIÓN", (ANCHO//2 - 115, 80), FUENTE_PREGUNTA, COLOR_NEGRO)
     
     # Sección de música
-    mostrar_texto(pantalla, "MÚSICA", (ANCHO//2 - 50, 150), FUENTE_TEXTO, COLOR_NEGRO)
+    mostrar_texto(pantalla, "MÚSICA", (ANCHO//2 - 40, 150), FUENTE_TEXTO, COLOR_NEGRO)
     
     # Botón música on/off - crear superficie nueva cada vez para evitar superposición
     boton_musica_superficie = pygame.transform.scale(pygame.image.load("btn_ajustes.jpg"), (120, 60))
@@ -89,7 +89,7 @@ def mostrar_ajustes(pantalla:pygame.Surface,cola_eventos:list[pygame.event.Event
     pantalla.blit(boton_mas_volumen["superficie"], boton_mas_volumen["rectangulo"])
     
     # Mostrar porcentaje de volumen
-    mostrar_texto(pantalla, f"{datos_juego['volumen_musica']}%", (ANCHO//2 - 30, 370), FUENTE_VOLUMEN, COLOR_NEGRO)
+    mostrar_texto(pantalla, f"{datos_juego['volumen_musica']}%", (ANCHO//2 - 60, 360), FUENTE_VOLUMEN, COLOR_NEGRO)
     
     # Barra de volumen visual
     barra_ancho = 200

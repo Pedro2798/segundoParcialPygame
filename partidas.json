@@ -53,5 +53,20 @@
         "nombre": "pedro",
         "puntuacion": 1150,
         "fecha": "02/07/2025 14:59:56"
+    },
+    {
+        "nombre": "asd",
+        "puntuacion": 25,
+        "fecha": "02/07/2025 15:16:45"
+    },
+    {
+        "nombre": "qqqqq",
+        "puntuacion": 25,
+        "fecha": "02/07/2025 15:16:57"
+    },
+    {
+        "nombre": "zxcxc",
+        "puntuacion": -75,
+        "fecha": "02/07/2025 15:17:07"
     }
 ]
